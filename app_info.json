@@ -1,0 +1,18 @@
+{
+  "slug": "ocr-audio",
+  "entry": "app.py",
+  "title": "De imagen a voz",
+  "category": "Imagen",
+  "headline": "Una imagen.",
+  "accent": "Palabras que se escuchan.",
+  "description": "Encadena reconocimiento de texto, traducción y síntesis de voz.",
+  "input": "Imagen PNG/JPG o captura de cámara; idiomas y acento.",
+  "output": "Texto extraído y audio de la traducción.",
+  "steps": "Carga una imagen o usa la cámara. En el panel lateral elige los idiomas y pulsa Convertir a audio.",
+  "technology": "Tesseract · Google Translate · gTTS",
+  "limits": "Los errores del OCR pasan a la traducción. La síntesis y la traducción necesitan conexión a sus servicios.",
+  "image": "txt_to_audio2.png",
+  "url": "https://ocr-audio-jhg.streamlit.app/",
+  "repo": "https://github.com/Jhuza/ocr-audio",
+  "kind": "vision"
+}
