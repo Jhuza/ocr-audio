@@ -43,7 +43,9 @@ remove_files(7)
 
 
 
-st.title("Reconocimiento Óptico de Caracteres")
+from aurora import app_header, footer
+app_header()
+
 st.subheader("Elige la fuente de la imágen, esta puede venir de la cámara o cargando un archivo")
 
 cam_ = st.checkbox("Usar Cámara")
@@ -79,7 +81,7 @@ if img_file_buffer is not None:
     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
 
     
-    if filtro == 'Con Filtro':
+    if filtro == 'Sí':
          cv2_img=cv2.bitwise_not(cv2_img)
     else:
         cv2_img= cv2_img
@@ -118,7 +120,7 @@ with st.sidebar:
           input_language = "ja"
       
       out_lang = st.selectbox(
-          "Select your output language",
+          "Seleccione el lenguaje de salida",
           ("Ingles", "Español", "Bengali", "koreano", "Mandarin", "Japones"),
       )
       if out_lang == "Ingles":
@@ -129,7 +131,7 @@ with st.sidebar:
           output_language = "bn"
       elif out_lang == "koreano":
           output_language = "ko"
-      elif out_lang == "Chinese":
+      elif out_lang == "Mandarin":
           output_language = "zh-cn"
       elif out_lang == "Japones":
           output_language = "ja"
@@ -168,7 +170,7 @@ with st.sidebar:
 
       display_output_text = st.checkbox("Mostrar texto")
 
-      if st.button("convert"):
+      if st.button("Convertir a audio", type="primary"):
           result, output_text = text_to_speech(input_language, output_language, text, tld)
           audio_file = open(f"temp/{result}.mp3", "rb")
           audio_bytes = audio_file.read()
@@ -185,3 +187,6 @@ with st.sidebar:
  
     
     
+
+
+footer("TEXTO / IMAGEN / VOZ / INTERACCIÓN")
